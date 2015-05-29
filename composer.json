@@ -1,0 +1,24 @@
+{
+    "name": "bizley/cookiemonster",
+    "type": "yii2-extension",
+    "description": "Yii extension to manage cookie warning.",
+    "keywords": ["yii2", "widget", "cookiemonster", "cookie", "warning", "privacy"],
+    "license": "BSD-3-Clause",
+    "support": {
+        "source": "https://github.com/bizley-code/yii2-cookiemonster"
+    },
+    "authors": [
+        {
+            "name": "Pawel Bizley Brzozowski",
+            "email": "pb@human-device.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "bizley\\cookiemonster\\": "src/"
+        }
+    }
+}
