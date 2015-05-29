@@ -98,3 +98,6 @@ You can set widget options by passing array to the widget() method with the foll
             We use cookies on our websites to help us offer you the best online experience. By continuing to use our website, you are agreeing to our use of cookies. Alternatively, you can manage them in your browser settings.<button style="margin-left:10px" class="CookieMonsterOk" type="button">I understand</button>
         </div>
     </div>
+
+## Yii 1.1 version
+https://github.com/bizley-code/Yii-CookieMonster
