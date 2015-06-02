@@ -24,6 +24,19 @@ Or run ```composer require bizley/cookiemonster```.
 Add this code in your main template file just before ```<?php $this->endBody() ?>```
 
     <?= \bizley\cookiemonster\CookieMonster::widget() ?>
+    
+This will render widget with all default options (and 'top' layout). If you want to configure it add options array.
+
+    <?= \bizley\cookiemonster\CookieMonster::widget([/* options here */]) ?>
+
+All options (and options' options) are described below. For example if you want to use custom message on the button and use 'bottom' layout set:
+
+    <?= \bizley\cookiemonster\CookieMonster::widget([
+        'content' => array(
+            'buttonMessage' => 'OK', // instead of default 'I understand'
+        ),
+        'mode' => 'bottom'
+    ]); ?>
 
 ## Configuration
 You can set widget options by passing array to the widget() method with the following keys:
