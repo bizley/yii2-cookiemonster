@@ -88,7 +88,7 @@ replacing the default ones
 replacing the default ones
 * ```setOuterStyle``` - __array__ list of outer div CSS style options to be set 
 replacing the default ones
-* ```view``` - __string__ path to the custom view (required if [[mode]] is set 
+* ```view``` - __string__ path to the custom view (required if $mode is set 
 to 'custom'), for views outside the widget folder use alias path 
 i.e. '@app/views/cookie'
 
@@ -102,7 +102,9 @@ default 'app'
 * ```language``` - __string__ target language as in Yii::t() $language, 
 default null
 * ```mainMessage``` - __string__ main original message as in Yii::t() $message, 
-default 'We use cookies on our websites to help us offer you the best online experience. By continuing to use our website, you are agreeing to our use of cookies. Alternatively, you can manage them in your browser settings.'
+default 'We use cookies on our websites to help us offer you the best online 
+experience. By continuing to use our website, you are agreeing to our use of 
+cookies. Alternatively, you can manage them in your browser settings.'
 * ```mainParams``` - __array__ parameters to be applied to the mainMessage as in 
 Yii::t() $params, default array()
 
@@ -149,4 +151,4 @@ protocol as https, default false
     </div>
 
 ## Yii 1.1 version
-https://github.com/bizley-code/Yii-CookieMonster
+You can find Yii 1.1 version at https://github.com/bizley-code/Yii-CookieMonster
