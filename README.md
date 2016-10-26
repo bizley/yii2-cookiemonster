@@ -1,10 +1,9 @@
-[![Latest Stable Version](https://poser.pugx.org/bizley/cookiemonster/v/stable)](https://packagist.org/packages/bizley/cookiemonster)
-[![Total Downloads](https://poser.pugx.org/bizley/cookiemonster/downloads)](https://packagist.org/packages/bizley/cookiemonster)
-[![Monthly Downloads](https://poser.pugx.org/bizley/cookiemonster/d/monthly)](https://packagist.org/packages/bizley/cookiemonster)
-[![License](https://poser.pugx.org/bizley/cookiemonster/license)](https://packagist.org/packages/bizley/cookiemonster)
-
 # yii2-cookiemonster
 Yii 2 extension to manage cookie warning
+
+![Latest Stable Version](https://img.shields.io/packagist/v/bizley/cookiemonster.svg)
+![Total Downloads](https://img.shields.io/packagist/dt/bizley/cookiemonster.svg)
+![License](https://img.shields.io/packagist/l/bizley/cookiemonster.svg)
 
 ## What is it for?
 In 2009, the European Union sought new regulations as part of an "e-privacy" 
