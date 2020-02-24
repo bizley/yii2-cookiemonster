@@ -7,7 +7,7 @@ use yii\helpers\Json;
 
 /**
  * CookieMonster is the Yii widget that adds warning about website cookies
- * https://github.com/bizley-code/yii2-cookiemonster
+ * https://github.com/bizley/yii2-cookiemonster
  * http://www.yiiframework.com/extension/yii2-cookiemonster
  *
  * See README file for configuration and usage examples.
@@ -17,108 +17,89 @@ use yii\helpers\Json;
  * https://github.com/yiisoft/yii2
  *
  * For Yii 1.1 version of this widget see
- * https://github.com/bizley-code/Yii-CookieMonster
- * 
+ * https://github.com/bizley/Yii-CookieMonster
+ *
  * @author Paweł Bizley Brzozowski
- * @version 1.0.1
+ * @version 1.0.2
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
 class CookieMonster extends Widget
 {
-
     /**
-     * @var array parameters for the CSS class and style and other HTML options 
-     * for the view containers.
+     * @var array parameters for the CSS class and style and other HTML options for the view containers.
      * Available options:
      * addButtonStyle: array
-     *      list of button CSS style options to be added or replaced with new 
-     *      values i.e. 'padding-right' => '20px', 'font-weight' => 'bold'
-     * addInnerStyle: array 
-     *      list of inner div CSS style options to be added or replaced with 
-     *      new values
-     * addOuterStyle: array 
-     *      list of outer div CSS style options to be added or replaced with 
-     *      new values
-     * buttonHtmlOptions: array 
+     *      list of button CSS style options to be added or replaced with new values
+     *      i.e. 'padding-right' => '20px', 'font-weight' => 'bold'
+     * addInnerStyle: array
+     *      list of inner div CSS style options to be added or replaced with new values
+     * addOuterStyle: array
+     *      list of outer div CSS style options to be added or replaced with new values
+     * buttonHtmlOptions: array
      *      list of button HTML options to be added (except style and class)
-     * classButton: string 
-     *      button class or classes (separated by spaces), 
-     *      default 'CookieMonsterOk'
-     * classInner: string 
+     * classButton: string
+     *      button class or classes (separated by spaces), default 'CookieMonsterOk'
+     * classInner: string
      *      inner div class or classes (separated by spaces)
-     * classOuter: string 
-     *      outer div class or classes (separated by spaces), 
-     *      default 'CookieMonsterBox'
+     * classOuter: string
+     *      outer div class or classes (separated by spaces), default 'CookieMonsterBox'
      * innerHtmlOptions: array
      *      list of inner div HTML options to be added (except style and class)
-     * outerHtmlOptions: array 
+     * outerHtmlOptions: array
      *      list of outer div HTML options to be added (except style and class)
-     * replaceButtonStyle: array 
-     *      list of button CSS style options to be replaced with new values or 
-     *      removed i.e. 'margin-left' => '10px', 'font-size' => false
-     * replaceInnerStyle: array 
-     *      list of inner div CSS style options to be replaced with new values 
-     *      or removed
-     * replaceOuterStyle: array 
-     *      list of outer div CSS style options to be replaced with new values 
-     *      or removed
-     * setButtonStyle: array 
-     *      list of button CSS style options to be set replacing the default 
-     *      ones
-     * setInnerStyle: array 
-     *      list of inner div CSS style options to be set replacing the default 
-     *      ones
-     * setOuterStyle: array 
-     *      list of outer div CSS style options to be set replacing the default 
-     *      ones
-     * view: string 
-     *      path to the custom view (required if $mode is set to 'custom'), 
-     *      for views outside the widget folder use alias path, 
-     *      i.e. '@app/views/cookie'
+     * replaceButtonStyle: array
+     *      list of button CSS style options to be replaced with new values or removed
+     *      i.e. 'margin-left' => '10px', 'font-size' => false
+     * replaceInnerStyle: array
+     *      list of inner div CSS style options to be replaced with new values or removed
+     * replaceOuterStyle: array
+     *      list of outer div CSS style options to be replaced with new values or removed
+     * setButtonStyle: array
+     *      list of button CSS style options to be set replacing the default ones
+     * setInnerStyle: array
+     *      list of inner div CSS style options to be set replacing the default ones
+     * setOuterStyle: array
+     *      list of outer div CSS style options to be set replacing the default ones
+     * view: string
+     *      path to the custom view (required if $mode is set to 'custom'), for views outside the widget folder
+     *      use alias path, i.e. '@app/views/cookie'
      */
     public $box = [];
 
     /**
      * @var array parameters for the texts.
      * Available options:
-     * buttonMessage: string 
-     *      button original message as in Yii::t() $message, 
-     *      default 'I understand'
-     * buttonParams: array 
-     *      parameters to be applied to the buttonMessage as in Yii::t() $params, 
-     *      default []
-     * category: string 
+     * buttonMessage: string
+     *      button original message as in Yii::t() $message, default 'I understand'
+     * buttonParams: array
+     *      parameters to be applied to the buttonMessage as in Yii::t() $params, default []
+     * category: string
      *      message category as in Yii::t() $category, default 'app'
-     * language: string 
+     * language: string
      *      target language as in Yii::t() $language, default null
-     * mainMessage: string 
-     *      main original message as in Yii::t() $message, 
-     *      default 'We use cookies on our websites to help us offer you the 
-     *      best online experience. By continuing to use our website, you are 
-     *      agreeing to our use of cookies. Alternatively, you can manage them 
-     *      in your browser settings.'
-     * mainParams: array 
-     *      parameters to be applied to the mainMessage as in Yii::t() $params, 
-     *      default []
+     * mainMessage: string
+     *      main original message as in Yii::t() $message, default 'We use cookies on our websites to help us offer you
+     *      the best online experience. By continuing to use our website, you are agreeing to our use of cookies.
+     *      Alternatively, you can manage them in your browser settings.'
+     * mainParams: array
+     *      parameters to be applied to the mainMessage as in Yii::t() $params, default []
      */
     public $content = [];
 
     /**
-     * @var array parameters for the cookie 
-     * https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
+     * @var array parameters for the cookie
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
      * Available options:
-     * domain: string 
-     *      domain name for the cookie, default host portion of the current 
-     *      document location
-     * expires: integer 
+     * domain: string
+     *      domain name for the cookie, default host portion of the current document location
+     * expires: integer
      *      number of days this cookie will be valid for, default 30
-     * max-age: integer 
+     * max-age: integer
      *      max cookie age in seconds
-     * path: string 
+     * path: string
      *      path for the cookie, default '/'
-     * secure: boolean 
-     *      wheter cookie should be transmitted over secure protocol as https, 
-     *      default false
+     * secure: boolean
+     *      whether cookie should be transmitted over secure protocol as https, default false
      */
     public $cookie = [];
 
@@ -133,8 +114,7 @@ class CookieMonster extends Widget
     public $mode = 'top';
 
     /**
-     * @var mixed parameter or parameters passed to the custom user's view 
-     * in case this is needed
+     * @var mixed parameter or parameters passed to the custom user's view in case this is needed
      */
     public $params;
 
@@ -142,37 +122,37 @@ class CookieMonster extends Widget
      * @var array list of button's HTML options
      */
     protected $buttonHtml = [];
-    
+
     /**
      * @var array list of button's CSS styles
      */
     protected $buttonStyle = [];
-    
+
     /**
      * @var array list of CSS class options
      */
     protected $classOptions = [];
-    
+
     /**
      * @var array list of content options
      */
     protected $contentOptions = [];
-    
+
     /**
      * @var array list of cookie options
      */
     protected $cookieOptions = [];
-    
+
     /**
      * @var string custom view path
      */
-    protected $cookieView = '';    
-    
+    protected $cookieView = '';
+
     /**
      * @var array list of inner div's HTML options
      */
     protected $innerHtml = [];
-    
+
     /**
      * @var array list of inner div's CSS styles
      */
@@ -186,7 +166,7 @@ class CookieMonster extends Widget
     /**
      * @var array list of outer div's CSS styles
      */
-    protected $outerStyle = [];    
+    protected $outerStyle = [];
 
     /**
      * Adds class option, removes dot and hash.
@@ -196,14 +176,14 @@ class CookieMonster extends Widget
     protected function addClassOption($name, $value)
     {
         $value = trim($value);
-        if (substr($value, 0, 1) == '.' || substr($value, 0, 1) == '#') {
+        if (strpos($value, '.') === 0 || strpos($value, '#') === 0) {
             $value = substr($value, 1);
         }
-        if ($value != '') {
+        if ($value !== '') {
             $this->addOption('class', $name, $value);
         }
     }
-    
+
     /**
      * Adds content option.
      * @param string $name option name
@@ -216,23 +196,23 @@ class CookieMonster extends Widget
             $this->addOption('content', $name, $value);
         }
     }
-    
+
     /**
      * Adds boolean cookie option.
      * @param string $name option name
-     * @param string $value option value
+     * @param bool|mixed $value option value
      */
     protected function addCookieBoolOption($name, $value)
     {
-        if ($value === true || $value === false) {
+        if (is_bool($value)) {
             $this->addOption('cookie', $name, $value);
         }
     }
-    
+
     /**
      * Adds integer cookie option.
      * @param string $name option name
-     * @param string|integer|float $value option value
+     * @param string|int|float $value option value
      */
     protected function addCookieIntOption($name, $value)
     {
@@ -241,7 +221,7 @@ class CookieMonster extends Widget
             $this->addOption('cookie', $name, (int)$value);
         }
     }
-    
+
     /**
      * Adds cookie option, removes '; name=' part.
      * @param string $name option name
@@ -261,7 +241,7 @@ class CookieMonster extends Widget
      * Adds option of certain type.
      * @param string $type type name
      * @param string $name option name
-     * @param string $value option value
+     * @param mixed $value option value
      */
     protected function addOption($type, $name, $value)
     {
@@ -279,10 +259,10 @@ class CookieMonster extends Widget
             $this->addOption('content', $name, $value);
         }
     }
-    
+
     /**
      * Adds the CSS styles for selected part.
-     * @param integer $what number of part
+     * @param int $what number of part
      * @param array $value list of styles
      */
     protected function addStyle($what, $value)
@@ -304,8 +284,8 @@ class CookieMonster extends Widget
             }
         }
     }
-    
-    /*
+
+    /**
      * Validates box parameters.
      */
     protected function checkBox()
@@ -365,7 +345,7 @@ class CookieMonster extends Widget
             }
         }
     }
-    
+
     /**
      * Validates content parameters.
      */
@@ -388,7 +368,7 @@ class CookieMonster extends Widget
             }
         }
     }
-    
+
     /**
      * Validates cookie parameters.
      */
@@ -414,33 +394,33 @@ class CookieMonster extends Widget
     }
 
     /**
-     * Initialises the js file, prepares the JSON js options.
+     * Initialises the JS file, prepares the JSON js options.
      */
     protected function initCookie()
     {
         $cookieOptions = Json::encode(
-                            array_merge(
-                                $this->cookieOptions,
-                                [
-                                    'classOuter'  => str_replace(' ', '.', $this->classOptions['classOuter']),
-                                    'classInner'  => str_replace(' ', '.', $this->classOptions['classInner']),
-                                    'classButton' => str_replace(' ', '.', $this->classOptions['classButton']),
-                                ]
-                            )
-                        );
+            array_merge(
+                $this->cookieOptions,
+                [
+                    'classOuter' => str_replace(' ', '.', $this->classOptions['classOuter']),
+                    'classInner' => str_replace(' ', '.', $this->classOptions['classInner']),
+                    'classButton' => str_replace(' ', '.', $this->classOptions['classButton']),
+                ]
+            )
+        );
         $view = $this->getView();
         assets\CookieMonsterAsset::register($view);
         $view->registerJs("CookieMonster.init($cookieOptions);");
     }
-    
+
     /**
      * Prepares the list of parameters to send to the view.
      * @return array
      */
     protected function prepareViewParams()
     {
-        $outerStyle  = [];
-        $innerStyle  = [];
+        $outerStyle = [];
+        $innerStyle = [];
         $buttonStyle = [];
 
         foreach ($this->outerStyle as $name => $value) {
@@ -454,35 +434,35 @@ class CookieMonster extends Widget
         }
 
         return [
-            'content'           => $this->contentOptions,
-            'outerHtmlOptions'  => array_merge(
-                                        $this->outerHtml, 
-                                        [
-                                            'style' => implode(';', $outerStyle),
-                                            'class' => $this->classOptions['classOuter']
-                                        ]
-                                    ),
-            'innerHtmlOptions'  => array_merge(
-                                        $this->innerHtml, 
-                                        [
-                                            'style' => implode(';', $innerStyle),
-                                            'class' => $this->classOptions['classInner']
-                                        ]
-                                    ),
+            'content' => $this->contentOptions,
+            'outerHtmlOptions' => array_merge(
+                $this->outerHtml,
+                [
+                    'style' => implode(';', $outerStyle),
+                    'class' => $this->classOptions['classOuter'],
+                ]
+            ),
+            'innerHtmlOptions' => array_merge(
+                $this->innerHtml,
+                [
+                    'style' => implode(';', $innerStyle),
+                    'class' => $this->classOptions['classInner'],
+                ]
+            ),
             'buttonHtmlOptions' => array_merge(
-                                        $this->buttonHtml, 
-                                        [
-                                            'style' => implode(';', $buttonStyle),
-                                            'class' => $this->classOptions['classButton']
-                                        ]
-                                    ),
-            'params'            => $this->params
+                $this->buttonHtml,
+                [
+                    'style' => implode(';', $buttonStyle),
+                    'class' => $this->classOptions['classButton'],
+                ]
+            ),
+            'params' => $this->params,
         ];
     }
-    
+
     /**
      * Replaces the CSS styles for selected part.
-     * @param integer $what number of part
+     * @param int $what number of part
      * @param array $value list of styles
      */
     protected function replaceStyle($what, $value)
@@ -508,7 +488,7 @@ class CookieMonster extends Widget
             }
         }
     }
-    
+
     /**
      * Runs the widget.
      * @return string
@@ -523,61 +503,57 @@ class CookieMonster extends Widget
         $this->initCookie();
 
         return $this->render(
-                $this->mode == 'custom' 
-                    ? $this->cookieView 
-                    : 'box', 
-                $this->prepareViewParams()
-            );
+            $this->mode === 'custom' ? $this->cookieView : 'box',
+            $this->prepareViewParams()
+        );
     }
-    
+
     /**
      * Sets default values.
      */
     protected function setDefaults()
     {
-        if (!isset($this->contentOptions['category']) 
-                || (isset($this->contentOptions['category']) 
-                        && empty($this->contentOptions['category']))) {
+        if (empty($this->contentOptions['category'])) {
             $this->contentOptions['category'] = 'app';
         }
-        if (!isset($this->contentOptions['mainParams'])) {
+        if (!array_key_exists('mainParams', $this->contentOptions)) {
             $this->contentOptions['mainParams'] = [];
         }
-        if (!isset($this->contentOptions['buttonParams'])) {
+        if (!array_key_exists('buttonParams', $this->contentOptions)) {
             $this->contentOptions['buttonParams'] = [];
         }
-        if (!isset($this->contentOptions['language'])) {
+        if (!array_key_exists('language', $this->contentOptions)) {
             $this->contentOptions['language'] = null;
         }
-        if (!isset($this->contentOptions['mainMessage'])) {
+        if (!array_key_exists('mainMessage', $this->contentOptions)) {
             $this->contentOptions['mainMessage'] = 'We use cookies on our websites to help us offer you the best online experience. By continuing to use our website, you are agreeing to our use of cookies. Alternatively, you can manage them in your browser settings.';
         }
-        if (!isset($this->contentOptions['buttonMessage'])) {
+        if (!array_key_exists('buttonMessage', $this->contentOptions)) {
             $this->contentOptions['buttonMessage'] = 'I understand';
         }
-        if (!isset($this->cookieOptions['path'])) {
+        if (!array_key_exists('path', $this->cookieOptions)) {
             $this->cookieOptions['path'] = '/';
         }
-        if (!isset($this->cookieOptions['expires'])) {
+        if (!array_key_exists('expires', $this->cookieOptions)) {
             $this->cookieOptions['expires'] = 30;
         }
-        if (!isset($this->cookieOptions['secure'])) {
+        if (!array_key_exists('secure', $this->cookieOptions)) {
             $this->cookieOptions['secure'] = false;
         }
-        if (!isset($this->classOptions['classOuter'])) {
+        if (!array_key_exists('classOuter', $this->classOptions)) {
             $this->classOptions['classOuter'] = 'CookieMonsterBox';
         }
-        if (!isset($this->classOptions['classInner'])) {
+        if (!array_key_exists('classInner', $this->classOptions)) {
             $this->classOptions['classInner'] = '';
         }
-        if (!isset($this->classOptions['classButton'])) {
+        if (!array_key_exists('classButton', $this->classOptions)) {
             $this->classOptions['classButton'] = 'CookieMonsterOk';
         }
     }
-    
+
     /**
      * Sets HTML options for selected part.
-     * @param integer $what number of part
+     * @param int $what number of part
      * @param array $value list of options
      */
     protected function setHtmlOptions($what, $value)
@@ -593,27 +569,26 @@ class CookieMonster extends Widget
                     break;
             }
             foreach ($value as $name => $set) {
-                if ($name == 'class' || $name == 'style') {
+                if ($name === 'class' || $name === 'style') {
                     continue;
-                } else {
-                    $this->{$type . 'Html'}[$name] = trim($set);
                 }
+                $this->{$type . 'Html'}[$name] = trim($set);
             }
         }
     }
-    
+
     /**
      * Sets the mode with default CSS styles.
      */
     protected function setMode()
     {
         $this->outerStyle = [
-            'display'          => 'none',
-            'z-index'          => 10000,
-            'position'         => 'fixed',
+            'display' => 'none',
+            'z-index' => 10000,
+            'position' => 'fixed',
             'background-color' => '#fff',
-            'font-size'        => '12px',
-            'color'            => '#000'
+            'font-size' => '12px',
+            'color' => '#000',
         ];
         $this->innerStyle = ['margin' => '10px'];
         $this->buttonStyle = ['margin-left' => '10px'];
@@ -621,26 +596,26 @@ class CookieMonster extends Widget
         switch ($this->mode) {
             case 'bottom':
                 $this->outerStyle = array_merge(
-                                        $this->outerStyle, 
-                                        [
-                                            'bottom'     => 0,
-                                            'left'       => 0,
-                                            'width'      => '100%',
-                                            'box-shadow' => '0 -2px 2px #000',
-                                        ]
-                                    );
+                    $this->outerStyle,
+                    [
+                        'bottom' => 0,
+                        'left' => 0,
+                        'width' => '100%',
+                        'box-shadow' => '0 -2px 2px #000',
+                    ]
+                );
                 break;
             case 'box':
                 $this->outerStyle = array_merge(
-                                        $this->outerStyle, 
-                                        [
-                                            'bottom'        => '20px',
-                                            'right'         => '20px',
-                                            'width'         => '300px',
-                                            'box-shadow'    => '-2px 2px 2px #000',
-                                            'border-radius' => '10px',
-                                        ]
-                                    );
+                    $this->outerStyle,
+                    [
+                        'bottom' => '20px',
+                        'right' => '20px',
+                        'width' => '300px',
+                        'box-shadow' => '-2px 2px 2px #000',
+                        'border-radius' => '10px',
+                    ]
+                );
                 break;
             case 'custom':
                 $this->outerStyle = [];
@@ -650,20 +625,20 @@ class CookieMonster extends Widget
             case 'top':
             default:
                 $this->outerStyle = array_merge(
-                                        $this->outerStyle, 
-                                        [
-                                            'top'        => 0,
-                                            'left'       => 0,
-                                            'width'      => '100%',
-                                            'box-shadow' => '0 2px 2px #000',
-                                        ]
-                                    );
+                    $this->outerStyle,
+                    [
+                        'top' => 0,
+                        'left' => 0,
+                        'width' => '100%',
+                        'box-shadow' => '0 2px 2px #000',
+                    ]
+                );
         }
     }
-    
+
     /**
      * Sets the CSS styles for selected part.
-     * @param integer $what number of part
+     * @param int $what number of part
      * @param array $value list of styles
      */
     protected function setStyle($what, $value)
@@ -687,7 +662,7 @@ class CookieMonster extends Widget
             $this->{$type . 'Style'} = $tmp;
         }
     }
-    
+
     /**
      * Sets custom user's view path.
      * @param string $value view path

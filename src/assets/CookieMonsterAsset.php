@@ -6,10 +6,6 @@ use yii\web\AssetBundle;
 
 /**
  * Asset bundle for the CookieMonster javascript file.
- * 
- * @author Paweł Bizley Brzozowski
- * @version 1.0.1
- * @license http://opensource.org/licenses/BSD-3-Clause
  */
 class CookieMonsterAsset extends AssetBundle
 {

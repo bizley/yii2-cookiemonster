@@ -5,20 +5,30 @@
     "keywords": ["yii2", "widget", "cookiemonster", "cookie", "warning", "privacy"],
     "license": "BSD-3-Clause",
     "support": {
-        "source": "https://github.com/bizley-code/yii2-cookiemonster"
+        "source": "https://github.com/bizley/yii2-cookiemonster",
+        "issues": "https://github.com/bizley/yii2-cookiemonster/issues"
     },
     "authors": [
         {
-            "name": "Pawel Bizley Brzozowski",
-            "email": "pb@human-device.com"
+            "name": "Paweł Bizley Brzozowski",
+            "email": "pawel@positive.codes"
         }
     ],
     "require": {
         "yiisoft/yii2": "*"
     },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "bizley\\cookiemonster\\": "src/"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }
