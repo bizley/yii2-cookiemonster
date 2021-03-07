@@ -1,5 +1,5 @@
 /*!
- * CookieMonster v1.0.2
+ * CookieMonster v1.1.0
  * Paweł Bizley Brzozowski
  * https://github.com/bizley/yii2-cookiemonster
  */
@@ -22,7 +22,8 @@ let CookieMonster = {
         name: "CookieMonsterAgreed",
         path: "/",
         secure: false,
-        value: "true"
+        value: "true",
+        sameSite: "lax"
     },
     options: function(options) {
         this.classOuter = options.classOuter || this.defaults.classOuter;
@@ -33,6 +34,7 @@ let CookieMonster = {
         this.name = this.defaults.name;
         this.secure = options.secure || this.defaults.secure;
         this.value = this.defaults.value;
+        this.sameSite = options.sameSite || this.defaults.sameSite;
     },
     agree: function(e) {
         e.preventDefault();
@@ -55,7 +57,8 @@ let CookieMonster = {
             + this.setPath()
             + this.setDomain()
             + this.setMaxAge()
-            + this.setSecure();
+            + this.setSecure()
+            + this.setSameSite();
     },
     hideMonit: function() {
         this.monit.remove();
@@ -101,6 +104,9 @@ let CookieMonster = {
             return "; secure";
         }
         return "";
+    },
+    setSameSite: function() {
+        return "; sameSite=" + this.sameSite;
     },
     showMonit: function() {
         this.monit.css("display", "block");
