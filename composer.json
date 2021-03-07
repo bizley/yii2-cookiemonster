@@ -15,14 +15,23 @@
         }
     ],
     "require": {
+        "php": ">=5.4",
         "yiisoft/yii2": "*"
     },
     "require-dev": {
+        "infection/infection": "*",
+        "php": ">=7.2",
+        "phpunit/phpunit": "^8.5",
         "roave/security-advisories": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "bizley\\cookiemonster\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "bizley\\tests\\": "tests/"
         }
     },
     "repositories": [
