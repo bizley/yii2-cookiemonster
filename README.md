@@ -4,6 +4,7 @@ Yii 2 extension to manage cookie warning
 ![Latest Stable Version](https://img.shields.io/packagist/v/bizley/cookiemonster.svg)
 ![Total Downloads](https://img.shields.io/packagist/dt/bizley/cookiemonster.svg)
 ![License](https://img.shields.io/packagist/l/bizley/cookiemonster.svg)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fbizley%2Fyii2-cookiemonster%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/bizley/yii2-cookiemonster/master)
 
 ## What is it for?
 In 2009, the European Union sought new regulations as part of an "e-privacy" directive, seeing cookies as a potential 
@@ -92,7 +93,8 @@ You can set widget options by passing array to the widget() method with the foll
 * `expires` - __integer__ number of days this cookie will be valid for, default 30
 * `max-age` - __integer__ max cookie age in seconds
 * `path` - __string__ path for the cookie, default '/'
-* `secure` - __boolean__ wheter cookie should be transmitted over secure protocol as https, default false
+* `secure` - __boolean__ whether cookie should be transmitted over secure protocol as https, default false
+* `sameSite` - __string__ 'lax' (default), 'strict', or 'none'
 
 ## `mode` possible values
 * `bottom` - bottom strip
