@@ -1,4 +1,4 @@
-name: Build with SQLite
+name: Build
 
 on:
   pull_request:
