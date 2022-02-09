@@ -10,8 +10,8 @@
     "timeout": 30,
     "logs": {
         "text": "infection.log",
-        "badge": {
-            "branch": "master"
+        "stryker": {
+            "badge": "master"
         }
     },
     "bootstrap": "./vendor/yiisoft/yii2/Yii.php",
