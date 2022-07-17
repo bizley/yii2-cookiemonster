@@ -22,7 +22,7 @@
         "infection/infection": "*",
         "php": ">=7.2",
         "phpunit/phpunit": "^8.5",
-        "roave/security-advisories": "dev-master"
+        "roave/security-advisories": "dev-latest"
     },
     "autoload": {
         "psr-4": {
@@ -39,5 +39,11 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "infection/extension-installer": true,
+            "yiisoft/yii2-composer": true
+        }
+    }
 }
