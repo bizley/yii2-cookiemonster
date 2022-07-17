@@ -15,7 +15,9 @@ class CookieMonsterTest extends TestCase
             'non-string' => [1, ['name' => '1']],
             'with spaces' => [' a ', ['name' => 'a']],
             'with dot' => ['.a', ['name' => 'a']],
+            'with dot and spaces' => [' .a ', ['name' => 'a']],
             'with hash' => ['#a', ['name' => 'a']],
+            'with hash ans spaces' => [' #a ', ['name' => 'a']],
             'ok' => ['a', ['name' => 'a']],
         ];
     }
@@ -38,6 +40,7 @@ class CookieMonsterTest extends TestCase
             'null' => [null, []],
             'with spaces' => [' a ', ['name' => 'a']],
             'non-string' => [1, ['name' => '1']],
+            'non-string 2' => [true, ['name' => '1']],
             'ok' => ['a', ['name' => 'a']],
         ];
     }
@@ -56,7 +59,7 @@ class CookieMonsterTest extends TestCase
     public function providerForAddCookieBoolOption()
     {
         return [
-            'non-boolean' => ['', []],
+            'non-boolean' => ['', ['name' => false]],
             'true' => [true, ['name' => true]],
             'false' => [false, ['name' => false]],
         ];
@@ -76,7 +79,7 @@ class CookieMonsterTest extends TestCase
     public function providerForAddCookieIntOption()
     {
         return [
-            'non-int' => ['a', []],
+            'non-int' => ['a', ['name' => 0]],
             'with spaces' => [' 1 ', ['name' => 1]],
             'int' => [1, ['name' => 1]],
             'int string' => ['1', ['name' => 1]],

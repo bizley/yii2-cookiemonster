@@ -178,12 +178,14 @@ class CookieMonster extends Widget
      */
     public function addClassOption($name, $value)
     {
-        $value = trim($value);
-        if (strpos($value, '.') === 0 || strpos($value, '#') === 0) {
-            $value = substr($value, 1);
-        }
-        if ($value !== '') {
-            $this->addOption('class', $name, $value);
+        if (!empty($value)) {
+            $value = trim($value);
+            if (strpos($value, '.') === 0 || strpos($value, '#') === 0) {
+                $value = substr($value, 1);
+            }
+            if ($value !== '') {
+                $this->addOption('class', $name, $value);
+            }
         }
     }
 
@@ -195,9 +197,8 @@ class CookieMonster extends Widget
      */
     public function addContentOption($name, $value)
     {
-        $value = trim($value);
         if (!empty($value)) {
-            $this->addOption('content', $name, $value);
+            $this->addOption('content', $name, trim($value));
         }
     }
 
@@ -209,8 +210,8 @@ class CookieMonster extends Widget
      */
     public function addCookieBoolOption($name, $value)
     {
-        if (is_bool($value)) {
-            $this->addOption('cookie', $name, $value);
+        if ($value !== null) {
+            $this->addOption('cookie', $name, (bool)$value);
         }
     }
 
@@ -222,8 +223,7 @@ class CookieMonster extends Widget
      */
     public function addCookieIntOption($name, $value)
     {
-        $value = trim($value);
-        if ($value !== '' && is_numeric($value)) {
+        if ($value !== null) {
             $this->addOption('cookie', $name, (int)$value);
         }
     }
@@ -265,7 +265,7 @@ class CookieMonster extends Widget
      */
     public function addParamsOption($name, $value)
     {
-        if (is_array($value) && count($value)) {
+        if ($value && is_array($value)) {
             $this->addOption('content', $name, $value);
         }
     }
