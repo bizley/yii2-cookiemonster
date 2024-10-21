@@ -21,7 +21,7 @@
     "require-dev": {
         "infection/infection": "*",
         "php": ">=7.4",
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^11.4",
         "roave/security-advisories": "dev-latest"
     },
     "autoload": {
