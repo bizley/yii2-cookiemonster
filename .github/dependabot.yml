@@ -4,11 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    reviewers:
-      - "bizley"
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "daily"
-    reviewers:
-      - "bizley"
